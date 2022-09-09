@@ -1,7 +1,6 @@
 
-<div class="card-header d-flex justify-content-between align-items-center">
-
-  <div class="d-flex justify-content-center align-items-center gap-4">
+<div class="card-header d-flex justify-content-between align-items-center border-0 bg-white">
+  <div class="d-flex justify-content-center align-items-center gap-4 border-0">
     <div>
       <%= link_to 'Home', todo_lists_path, class: ' text-white btn btn-success btn-sm' %>
     </div>
@@ -10,32 +9,32 @@
         <b><%= @todo_list.title %></b>
         <span class="badge badge-pill bg-<%= @todo_list.badge_color %>"><%= @todo_list.status %></span>
       </h5>
-      <p class="text-secondary m-0"><small><%= @todo_list.percent_complete %>% Complete (<%= @todo_list.percent_complete %> / <%= @todo_list.percent_complete%> Items)</small></p>
+      <p class="text-secondary m-0"><small><%= @todo_list.percent_complete %>% Complete (<%= @todo_list.completed_items %> / <%= @todo_list.completed_items%> Items)</small></p>
     </div>
-    </div>
-    <div>
-    <%= link_to 'Edit', edit_todo_list_path(@todo_list), class: 'btn btn-secondary text-white' %>
   </div>
-
+  <div>
+    <%= link_to 'Edit', edit_todo_list_path(@todo_list), class: 'btn btn-secondary text-white btn-sm' %>
+  </div>
 </div>
-<div class="card-body">
+
+<div class="card-body border-0 aniceborder-">
   <div class="progress mb-2">
     <div class="progress-bar bg-info" role="progressbar" style="width: <%= @todo_list.percent_complete%>%" aria-valuenow="<%= @todo_list.percent_complete%>" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
   
   <%= form_for([@todo_list, @todo_item]) do |f| %>
     <div class="input-group mb-4">
-      <%= f.text_field :description, class: 'form-control', placeholder: 'Add a todo item' %>
+      <%= f.text_field :description, class: 'form-control border-0 aniceborder', placeholder: 'Add a todo item' %>
       <div class="input-group-append">
-        <%= f.submit "Add", class: "btn btn-primary input-group-btn" %>
+        <%= f.submit "Add", type: 'button', class: "btn btn-primary input-group-btn" %>
       </div>
     </div>
   <% end %>
   
-  <ul class="list-group">
+  <ul class="list-group border-0 ">
     <% @todo_list.todo_items.each do |todo_item| %>
       <% if todo_item.completed? %>
-        <li class="list-group-item bg-light">
+        <li class="list-group-item bg-light aniceborder mt-2">
           <div class="d-flex justify-content-between align-items-center">
             <span class="text-secondary">
               <del><%= todo_item.description%></del>
@@ -43,25 +42,25 @@
             </span>
             <%= form_with(model: [todo_item.todo_list, todo_item]) do |f| %>
               <%= f.check_box :completed, :checked => false, :style => 'visibility: hidden' %>
-              <%= button_tag( :class => "btn btn-danger text-white") do %>
+              <%= button_tag( :class => "btn btn-danger text-white btn-sm") do %>
                 <i class="fa fa-square"></i>
               <% end %>
-              <%= link_to 'X', [todo_item.todo_list, todo_item], method: :delete, class: "btn btn-dark text-white" %>
+              <%= link_to 'X', [todo_item.todo_list, todo_item], method: :delete, class: "btn btn-dark text-white btn-sm" %>
             <% end %>
           </div>
         </li>
         <% else %>
-          <li class="list-group-item">
+          <li class="list-group-item border-0 bg-white aniceborder mt-2">
             <div class="d-flex justify-content-between">
               <span class="pt-2">
                 <%= todo_item.description%>
               </span>
               <%= form_with(model: [todo_item.todo_list, todo_item]) do |f| %>
                 <%= f.check_box :completed, :checked => true, :style => 'visibility: hidden' %>
-                <%= button_tag( :class => "btn btn-info text-white") do %>
+                <%= button_tag( :class => "btn btn-info text-white btn-sm") do %>
                   <i class="fa fa-check"> </i>
                 <% end %>
-              <%= link_to 'X', [todo_item.todo_list, todo_item], method: :delete, class: "btn btn-dark text-white" %>
+              <%= link_to 'X', [todo_item.todo_list, todo_item], method: :delete, class: "btn btn-dark text-white btn-sm" %>
 
               <% end %>
             </div>

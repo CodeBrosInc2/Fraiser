@@ -1,14 +1,14 @@
 
-<div class="card-header d-flex justify-content-between align-items-center">
-  <h3 class="card-title mt-1">
+<div class="card-header d-flex justify-content-between align-items-center border-0 bg-white aniceborder">
+  <h5 class="card-title mt-1">
     Editing a Todo list
-  </h3> 
+  </h5> 
   <div>
-  <%= link_to 'Back', @todo_list, class: 'btn btn-secondary btn-sm' %> 
+  <%= link_to 'Back', @todo_list, class: 'btn btn-secondary btn-sm text-white' %> 
   </div>
 </div>
-<ul class="list-group">
-    <li class="list-group-item bg-light">
+<ul class="list-group border-0 bg-white aniceborder mt-1">
+    <li class="list-group-item border-0 bg-white mt-3">
       <div class="w-100">
         <%= render 'form', todo_list: @todo_list %>
       </div>

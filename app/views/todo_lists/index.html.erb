@@ -1,15 +1,15 @@
-<div class="card-header d-flex justify-content-between align-items-center">
-  <h3 class="card-title mt-1">
+<div class="card-header d-flex justify-content-between align-items-center border-0 bg-white">
+  <h4 class="card-title mt-1">
     Todo List
-  </h3>
+  </h4>
   <div>
     <%= link_to 'New Todo List', new_todo_list_path, class: 'btn btn-primary btn-sm text-white' %>
   </div>
 </div>
-<ul class="list-group">
+<ul class="list-group border-top">
   <% @todo_lists.each do |todo_list| %>
-    <li class="list-group-item bg-light">
-      <div>
+    <li class="list-group-item bg-white border-0">
+      <div class="d-flex justify-content-between align-items-center px-2 py-2 mt-2 todoListItem">
         <div class="d-flex justify-content-start gap-2">
           <h5 class="m-0">
             <b><%= link_to todo_list.title, todo_list, class: "text-decoration-none"%></b>

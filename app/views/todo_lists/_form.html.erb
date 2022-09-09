@@ -1,9 +1,7 @@
 <%= form_with(model: todo_list, local: true) do |form| %>
   <div class="input-group mb-4 w-100">
-    <%= form.text_field :title, class: 'form-control', placeholder: 'Name your new Todo list here' %>
+    <%= form.text_field :title, class: 'form-control border-0 aniceborder', placeholder: 'Name your new Todo list here' %>
     <div class="input-group-append">
       <%= form.submit "Add", class: "btn btn-primary input-group-btn" %>
   </div>
 <% end %>
-
-
