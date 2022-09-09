@@ -1,6 +1,18 @@
-<h1>Editing Todo List</h1>
 
-<%= render 'form', todo_list: @todo_list %>
+<div class="card-header d-flex justify-content-between align-items-center">
+  <h3 class="card-title mt-1">
+    Editing a Todo list
+  </h3> 
+  <div>
+  <%= link_to 'Back', @todo_list, class: 'btn btn-secondary btn-sm' %> 
+  </div>
+</div>
+<ul class="list-group">
+    <li class="list-group-item bg-light">
+      <div class="w-100">
+        <%= render 'form', todo_list: @todo_list %>
+      </div>
+    </li>
+</ul>
 
-<%= link_to 'Show', @todo_list %> |
-<%= link_to 'Back', todo_lists_path %>
+
